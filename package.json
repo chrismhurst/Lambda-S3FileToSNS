@@ -1,0 +1,11 @@
+{
+  "name": "lambda-s3filetosns",
+  "version": "1.0.0",
+  "description": "\"Gets Notification from S3 bucket, publishes file contents and/or file to SNS topic\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Hurst",
+  "license": "ISC"
+}
