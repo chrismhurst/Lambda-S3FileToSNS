@@ -20,8 +20,6 @@ var getS3ObjectFromEvent = (event) => {
         resolve(data);
       }
     });
-    // console.log(params);
-    // resolve(event);
   });
 };
 

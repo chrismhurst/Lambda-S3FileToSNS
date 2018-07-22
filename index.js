@@ -1,17 +1,23 @@
+// // import Variables
+// var Vars = require('./Variables/Environment.js');
+
 //import s3 functions
-var s3Commands = require('./Functions/s3Functions.js');
+var s3Functions = require('./Functions/s3Functions.js');
+
+//import sns functions
+var snsFunctions = require('./Functions/snsFunctions.js');
 
 //handler function which is triggered on Lambda event
 exports.handler = function(event, context, callback) {
 
-s3Commands.getS3ObjectFromEvent(event).then((res) => {
+s3Functions.getS3ObjectFromEvent(event).then((res) => {
   if (res.ContentType === 'text/plain'){
-    console.log(res.Body.toString('utf8'));
-    // var text = JSON.stringify(res.Body.toString('utf8'));
-    // console.log(text);
-    context.succeed(res.Body.toString('utf8'));
+    return snsFunctions.publishTextToTopic(res);
   };
-  }).catch((err) => {
+}).then((res) => {
+  console.log(res);
+  context.succeed(res);
+}).catch((err) => {
     console.log(err);
   });
 };
