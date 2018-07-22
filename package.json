@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chris Hurst",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.259.1"
+  },
+  "devDependencies": {
+    "claudia": "^5.0.0"
+  }
 }
