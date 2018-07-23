@@ -16,6 +16,7 @@ s3Functions.getS3ObjectFromEvent(event).then((res) => {
   }
   else {
     console.log(event);
+    console.log(res);
     context.succeed('Not a text file');
   };
 }).then((res) => {
