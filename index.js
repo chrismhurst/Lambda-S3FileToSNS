@@ -13,6 +13,9 @@ exports.handler = function(event, context, callback) {
 s3Functions.getS3ObjectFromEvent(event).then((res) => {
   if (res.ContentType === 'text/plain'){
     return snsFunctions.publishTextToTopic(res);
+  }
+  else {
+    context.succeed('Not a text file');
   };
 }).then((res) => {
   console.log(res);

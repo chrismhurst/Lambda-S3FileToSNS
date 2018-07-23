@@ -27,8 +27,7 @@ var publishTextToTopic = (message) => {
       });
     }
     else {
-      console.log('not a txt file');
-      reject(err);
+      reject('not a txt file');
     };
   });
 };

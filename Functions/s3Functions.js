@@ -11,7 +11,7 @@ var getS3ObjectFromEvent = (event) => {
     //set params to grab all volumes with tag:Backup value:true
     var params = {
       Bucket: event.Records[0].s3.bucket.name,
-      Key: decodeURIComponent(event.Records[0].s3.object.key)
+      Key: decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "))
     }
     s3.getObject(params, (err, data) => {
       if (err) {
