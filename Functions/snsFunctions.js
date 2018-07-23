@@ -1,3 +1,5 @@
+var Vars = require('../Variables/Vars.js');
+
 // import individual service
 var SNS = require('aws-sdk/clients/sns');
 
@@ -11,7 +13,7 @@ var publishTextToTopic = (message) => {
     if (message.ContentType === 'text/plain'){
       var params = {
         Message: message.Body.toString('utf8'),
-        TopicArn: 'arn:aws:sns:us-east-1:457598648171:lambda-s3filetosns',
+        TopicArn: Vars.Environment.SNSTopicARN,
         Subject: 'AWS SNS Message'
       }
       sns.publish(params, (err, data) => {

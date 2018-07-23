@@ -15,6 +15,7 @@ s3Functions.getS3ObjectFromEvent(event).then((res) => {
     return snsFunctions.publishTextToTopic(res);
   }
   else {
+    console.log(event);
     context.succeed('Not a text file');
   };
 }).then((res) => {
